@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% block content %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Eccomerce session</title>
+</head>
+<style type="text/css">
+	.container{
+		width: 400px;
+		margin: auto;
+		text-align: center;
+		padding: 6px;
+	}
+	.image{
+		width: 100px;
+		height: 100px;
+	}
+	.link{
+		text-decoration: none;
+	}
+</style>
+<body>
+<div class="header"></div>
+<div class="container">
+{% for product in products %}
+<img class="image" src="{{product.image_url}}">
+<a class="link" href="{% url 'products' product.id %}"><h3>{{product.title}}</h3></a>
+
+{% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}
